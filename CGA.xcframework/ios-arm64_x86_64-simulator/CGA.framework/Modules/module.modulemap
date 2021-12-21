@@ -1,0 +1,11 @@
+framework module CGA {
+  umbrella header "CGA.h"
+
+  export *
+  module * { export * }
+}
+
+module CGA.Swift {
+    header "CGA-Swift.h"
+    requires objc
+}

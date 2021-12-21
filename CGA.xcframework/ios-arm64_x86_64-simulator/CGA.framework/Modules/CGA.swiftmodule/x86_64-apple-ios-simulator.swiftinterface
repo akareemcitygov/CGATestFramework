@@ -1,0 +1,175 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CGA
+@_exported import CGA
+import CoreData
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+public class NetworkManager {
+  public static let sharedNetwork: CGA.NetworkManager
+  public var isReachable: Swift.Bool {
+    get
+  }
+  public init()
+  public func requestWithAPI(apiURLString: Swift.String, requestObject: CGA.JSONSerializable? = nil, httpMethod: CGA.HTTPRequestType = .GET, parameters: [Swift.String : Any] = [:], headers: [Swift.String : Swift.String] = [:], encoding: CGA.CGAEncoding = .url, body: Swift.String = "", completed: @escaping (Swift.Result<Foundation.Data, CGA.CGAError>) -> ())
+  @objc deinit
+}
+public func print(items: Any..., separator: Swift.String = "", terminator: Swift.String = "\n")
+public func print(error: Swift.Error, functionName: Swift.String)
+public protocol JSONSerializable : Swift.Decodable, Swift.Encodable {
+  var JSONRepresentation: [Swift.String : Any] { get }
+}
+extension CGA.JSONSerializable {
+  public var JSONRepresentation: [Swift.String : Any] {
+    get
+  }
+  public func toData() -> Foundation.Data?
+}
+extension Foundation.Data {
+  public func getDecodedObject<T>(from object: T.Type) -> T? where T : Swift.Decodable
+}
+extension Swift.Dictionary {
+  public func dataObject() -> Foundation.Data?
+}
+public struct API {
+  public static let accelav4: Swift.String
+  public static let accelaV3: Swift.String
+  public static let loginAccelaPROD: Swift.String
+  public static let getUserInfo: Swift.String
+  public static let refreshToken: Swift.String
+  public static var productionBaseURL: Swift.String
+  public static var supportBaseURL: Swift.String
+  public static var enterpriseBaseURL: Swift.String
+  public static var devBaseURL: Swift.String
+  public static var productionBundleIdentifier: Swift.String
+  public static var supportBundleIdentifier: Swift.String
+  public static var enterpriseBundleIdentifier: Swift.String
+  public static var devBaseBundleIdentifier: Swift.String
+  public static func baseURL() -> Swift.String
+}
+public enum HTTPRequestType : Swift.String {
+  case GET
+  case POST
+  case PATCH
+  case DELETE
+  case PUT
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum StatusCode : Swift.Int {
+  case notReachable
+  case success
+  case multipleResponse
+  case unAuthorized
+  case notFound
+  case serverError
+  case unprocessableEntry
+  case unknown
+  case generic
+  case serverErrorCode
+  case timout
+  case login
+  case internet
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CGAError : Swift.String, Swift.Error {
+  case invalidURL
+  case invalidResponse
+  case invalidParameters
+  case internetFailure
+  case unAuthorized
+  case multipleResponse
+  case notFound
+  case notReachable
+  case success
+  case unknown
+  case unProcessableEntry
+  case accessTokenMissing
+  case genericError
+  case serverNotAvailable
+  case serverError
+  case timoutError
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct WebConstants {
+  public static let shared: CGA.WebConstants
+  public let Post: Swift.String
+  public let SecretKey: Swift.String
+  public let XRequestedWith: Swift.String
+  public let XMLHttpRequest: Swift.String
+  public let ContentType: Swift.String
+  public let ApplicationJson: Swift.String
+  public let MultipartFormData: Swift.String
+  public let Authorization: Swift.String
+  public let AccessToken: Swift.String
+  public let CFBundleShortVersionString: Swift.String
+  public let Password: Swift.String
+  public let Bearer: Swift.String
+}
+public enum CGAEncoding {
+  case url
+  case JSON
+  public static func == (a: CGA.CGAEncoding, b: CGA.CGAEncoding) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum PersistentStoreType {
+  case sqLite
+  case binary
+  case inMemory
+  public static func == (a: CGA.PersistentStoreType, b: CGA.PersistentStoreType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol DataManagerErrorLogger {
+  func log(error: Foundation.NSError, file: Swift.StaticString, function: Swift.StaticString, line: Swift.UInt)
+}
+@_hasMissingDesignatedInitializers final public class CoreDataManager {
+  public static var errorLogger: CGA.DataManagerErrorLogger?
+  public static var defaultFetchBatchSize: Swift.Int
+  public static func setUp(withDataModelName dataModelName: Swift.String, bundle: Foundation.Bundle, persistentStoreName: Swift.String, persistentStoreType: CGA.PersistentStoreType = .sqLite)
+  public static var mainContext: CoreData.NSManagedObjectContext
+  public static func createChildContext(withParent parent: CoreData.NSManagedObjectContext) -> CoreData.NSManagedObjectContext
+  public static func fetchObjects<T>(entity: T.Type, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil, context: CoreData.NSManagedObjectContext) -> [T] where T : CoreData.NSManagedObject
+  public static func fetchObject<T>(entity: T.Type, predicate: Foundation.NSPredicate? = nil, sortDescriptors: [Foundation.NSSortDescriptor]? = nil, context: CoreData.NSManagedObjectContext) -> T? where T : CoreData.NSManagedObject
+  public static func delete(_ objects: [CoreData.NSManagedObject], in context: CoreData.NSManagedObjectContext)
+  public static func deleteAllObjects()
+  public static func persist(synchronously: Swift.Bool, completion: ((Foundation.NSError?) -> Swift.Void)? = nil)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class SplashViewController : UIKit.UIViewController {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var label: UIKit.UILabel!
+  @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+extension CGA.HTTPRequestType : Swift.Equatable {}
+extension CGA.HTTPRequestType : Swift.Hashable {}
+extension CGA.HTTPRequestType : Swift.RawRepresentable {}
+extension CGA.StatusCode : Swift.Equatable {}
+extension CGA.StatusCode : Swift.Hashable {}
+extension CGA.StatusCode : Swift.RawRepresentable {}
+extension CGA.CGAError : Swift.Equatable {}
+extension CGA.CGAError : Swift.Hashable {}
+extension CGA.CGAError : Swift.RawRepresentable {}
+extension CGA.CGAEncoding : Swift.Equatable {}
+extension CGA.CGAEncoding : Swift.Hashable {}
+extension CGA.PersistentStoreType : Swift.Equatable {}
+extension CGA.PersistentStoreType : Swift.Hashable {}
