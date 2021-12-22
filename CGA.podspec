@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "CGA"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "To build multiple applications"
 
   spec.description  = "This framework includes Alamofire so you don't have to add it again in your project, just import CGATestFramework and boom."
@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/akareemcitygov/CGATestFramework.git", :tag => spec.version.to_s }
 
-  spec.source_files  = "CGA/**/*.{swift}"
+  #spec.source_files  = "Resources/**/*"
 
   spec.framework  = "CoreData"
   spec.dependency  'Alamofire', '~> 5.0'

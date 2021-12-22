@@ -72,7 +72,7 @@
 		6990C97F276851A900422E13 = {
 			isa = PBXGroup;
 			children = (
-				6990C98B276851A900422E13 /* CGA */,
+				6990C98B276851A900422E13 /* Sources */,
 				6990C98A276851A900422E13 /* Products */,
 				6990C9BF2768591300422E13 /* Frameworks */,
 			);
@@ -86,7 +86,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6990C98B276851A900422E13 /* CGA */ = {
+		6990C98B276851A900422E13 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				6990C98C276851A900422E13 /* CGA.h */,
@@ -98,7 +98,7 @@
 				6990C9ED27689C7A00422E13 /* Controllers */,
 				6990C98D276851A900422E13 /* CGA.docc */,
 			);
-			path = CGA;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		6990C9BF2768591300422E13 /* Frameworks */ = {
